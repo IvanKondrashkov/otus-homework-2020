@@ -9,7 +9,6 @@ public class Main {
         List<Integer> integersList1 = new DIYArrayList<>();
         List<Integer> integersList2 = new DIYArrayList<>();
 
-
         Collections.addAll(integersList1, 0, 0, 0, 0, 0, 0, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22);
         Collections.addAll(integersList2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21, 22);
         System.out.println(integersList1);

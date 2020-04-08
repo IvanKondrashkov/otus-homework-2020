@@ -7,28 +7,16 @@ public class DIYArrayList<T> implements List<T> {
     private static int modCount = 0;
     private T[] array;
     private int size;
-    private int container;
     private int index;
 
     public DIYArrayList() {
         this.array = (T[]) new Object[DEFAULT_CAPACITY];
         this.size = DEFAULT_CAPACITY;
-        this.container = DEFAULT_CAPACITY;
     }
 
     public DIYArrayList(int initialCapacity) {
-        if (initialCapacity > this.size) {
-            this.array = (T[]) new Object[initialCapacity];
-            this.size = initialCapacity;
-            this.container = initialCapacity;
-        } else if (initialCapacity < this.size && initialCapacity > 0) {
-            this.array = (T[]) new Object[DEFAULT_CAPACITY];
-            this.size = DEFAULT_CAPACITY;
-            this.container = DEFAULT_CAPACITY;
-        } else {
-            throw new IllegalArgumentException("initialCapacity: "
-                    + initialCapacity);
-        }
+        this.array = (T[]) new Object[initialCapacity];
+        this.size = initialCapacity;
     }
 
     @Override
@@ -63,15 +51,9 @@ public class DIYArrayList<T> implements List<T> {
 
     @Override
     public boolean add(T t) {
-        boolean result;
         checkArrayResize(index + 1);
         this.array[index++] = t;
-        if (index >= 0 || index < size) {
-            result = true;
-        } else {
-            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
-        }
-        return result;
+        return true;
     }
 
     @Override
@@ -161,28 +143,35 @@ public class DIYArrayList<T> implements List<T> {
     }
 
     private void checkArrayResize(int minCapacity) {
-        if (minCapacity > container) {
+        if (minCapacity > array.length) {
             modCount++;
             initArrayResize();
         }
     }
 
     private void initArrayResize() {
-        T[] arrayMod = (T[]) new Object[container * 3];
+        T[] arrayMod = (T[]) new Object[array.length * 3];
         System.arraycopy(array, 0, arrayMod, 0, array.length);
+        this.array = filterNull(arrayMod);
         this.size = array.length;
-        this.array = arrayMod;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == null) {
-                this.size -= 1;
+    }
+
+    private T[] filterNull(T[] array) {
+        int count = 0;
+        for (T t : array) {
+            if (t != null) {
+                count++;
+                array = (T[]) Arrays.stream(array).filter(s -> (s != null)).toArray(Object[]::new);
             }
         }
+        return Arrays.copyOf(array, count + 1);
     }
 
     @Override
     public String toString() {
         return "DIYArrayList{" +
                 "array=" + Arrays.toString(array) +
+                ", size=" + size +
                 '}';
     }
 
