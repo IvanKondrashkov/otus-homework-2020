@@ -15,8 +15,10 @@ public class DIYArrayList<T> implements List<T> {
     }
 
     public DIYArrayList(int initialCapacity) {
-        this.array = (T[]) new Object[initialCapacity];
-        this.size = initialCapacity;
+        if (initialCapacity > 0) {
+            this.array = (T[]) new Object[initialCapacity];
+            this.size = initialCapacity;
+        }
     }
 
     @Override
@@ -150,18 +152,15 @@ public class DIYArrayList<T> implements List<T> {
     }
 
     private void initArrayResize() {
-        T[] arrayMod = (T[]) new Object[array.length * 3];
-        System.arraycopy(array, 0, arrayMod, 0, array.length);
-        this.array = filterNull(arrayMod);
+        this.array = ensureCapacity(array);
         this.size = array.length;
     }
 
-    private T[] filterNull(T[] array) {
+    private T[] ensureCapacity(T[] array) {
         int count = 0;
         for (T t : array) {
             if (t != null) {
                 count++;
-                array = (T[]) Arrays.stream(array).filter(s -> (s != null)).toArray(Object[]::new);
             }
         }
         return Arrays.copyOf(array, count + 1);

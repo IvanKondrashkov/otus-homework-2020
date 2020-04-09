@@ -1,6 +1,5 @@
 package ru.otus.homework;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
