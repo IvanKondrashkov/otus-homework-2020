@@ -35,10 +35,8 @@ public class TestRunner {
 
         for (int k = 0; k < listTest.size(); k++) {
             for (int i = 0; i < listBefore.size(); i++) {
-                test++;
                 try {
                     listBefore.get(i).invoke(obj);
-                    passed++;
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     e.printStackTrace();
                 }
@@ -51,10 +49,8 @@ public class TestRunner {
                 e.printStackTrace();
             }
             for (int j = 0; j < listAfter.size(); j++) {
-                test++;
                 try {
                     listAfter.get(j).invoke(obj);
-                    passed++;
                 } catch (IllegalAccessException | InvocationTargetException e) {
                     e.printStackTrace();
                 }
