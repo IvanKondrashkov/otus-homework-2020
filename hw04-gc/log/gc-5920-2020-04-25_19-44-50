@@ -1,0 +1,13 @@
+[0.013s][info][gc] Using Serial
+[12.997s][info][gc] GC(0) Pause Young (Allocation Failure) 68M->42M(247M) 82.409ms
+[26.048s][info][gc] GC(1) Pause Young (Allocation Failure) 91M->90M(247M) 116.334ms
+[38.609s][info][gc] GC(2) Pause Young (Allocation Failure) 146M->145M(247M) 211.483ms
+[52.271s][info][gc] GC(4) Pause Full (Allocation Failure) 213M->163M(247M) 413.345ms
+[52.271s][info][gc] GC(3) Pause Young (Allocation Failure) 213M->163M(247M) 413.471ms
+[58.833s][info][gc] GC(6) Pause Full (Allocation Failure) 231M->196M(247M) 448.207ms
+[58.833s][info][gc] GC(5) Pause Young (Allocation Failure) 231M->196M(247M) 448.304ms
+[81.118s][info][gc] GC(7) Pause Full (Allocation Failure) 247M->247M(247M) 531.667ms
+[82.123s][info][gc] GC(8) Pause Full (Allocation Failure) 247M->247M(247M) 698.039ms
+[82.629s][info][gc] GC(9) Pause Full (Allocation Failure) 247M->247M(247M) 500.815ms
+[83.122s][info][gc] GC(10) Pause Full (Allocation Failure) 247M->247M(247M) 492.240ms
+[86.655s][info][gc] GC(11) Pause Full (Allocation Failure) 247M->1M(247M) 110.964ms
