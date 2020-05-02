@@ -1,15 +1,14 @@
 package ru.otus.homework;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.management.GarbageCollectorMXBean;
+import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MonitorGc implements MonitorGcMBean {
-    private static Logger logger = Logger.getLogger(MonitorGc.class.getName());
     private int size;
     private String name;
     private long time;
@@ -22,50 +21,42 @@ public class MonitorGc implements MonitorGcMBean {
         this.countBuildGc = 0;
     }
 
-    protected void initState() throws InterruptedException {
+    protected void initState() throws InterruptedException, IOException {
         List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
             list.add(Integer.valueOf(i));
-            if (list.get(i) % 50_000 == 0) {
+            if (list.get(i) % 500_000 == 0) {
                 System.out.printf("List size = %s\n", list.size());
                 Thread.sleep(300);
-            }
-            if (list.size() == size) {
-                while (true) {
-                    list.removeIf(el -> el < (list.size() / 2) - 1);
-                    Thread.sleep(300);
-                    list.add(Integer.valueOf((list.size() / 2) + 1));
-                }
+                logInfo();
             }
         }
     }
 
-    protected void logInfo() {
+    protected void logInfo() throws IOException {
         StringBuilder buf = new StringBuilder();
-        FileHandler handler;
-        try {
-            handler = new FileHandler("./hw04-gc/log/logs.txt");
-            logger.addHandler(handler);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        OutputStream out = new FileOutputStream("./hw04-gc/log/logs.txt", true);
 
-        List<GarbageCollectorMXBean> list = java.lang.management.ManagementFactory.getGarbageCollectorMXBeans();
+        List<GarbageCollectorMXBean> list = ManagementFactory.getGarbageCollectorMXBeans();
 
         String name = "Gc name: " + getName();
         String count = "Gc build: " + getCountBuildGc();
-        String time = "Gc build time: " + (getTime() / 1000) + " sec";
+        String time = "Gc build time: " + (getTime() / 1000.0) + " sec";
 
         buf.append("[").append(name).append("]").append("-").append("[").append(count).append("]")
-                .append("-").append("[").append(time).append("]");
+                .append("-").append("[").append(time).append("]").append("\n");
 
-        for (GarbageCollectorMXBean gcBean : list) {
-            setName(gcBean.getName());
-            setCountBuildGc(gcBean.getCollectionCount());
-            setTime(gcBean.getCollectionTime());
-            logger.log(Level.INFO, buf.toString());
+        for (int i = 0; i < list.size() - 1; i++) {
+            setName(list.get(i).getName());
+            setCountBuildGc(list.get(i).getCollectionCount());
+            setTime(list.get(i).getCollectionTime());
+
+            if (list.get(i).getCollectionCount() != list.get(i + 1).getCollectionCount()) {
+                out.write(buf.toString().getBytes());
+            }
         }
+        out.close();
     }
 
     @Override
