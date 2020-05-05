@@ -1,0 +1,69 @@
+-Xms256m
+-Xmx256m
+-XX:+UseSerialGC
+[Gc name: Copy]-[Gc build: 0]-[Gc build time: 0.0 sec]
+[Gc name: Copy]-[Gc build: 1]-[Gc build time: 0.089 sec]
+[Gc name: Copy]-[Gc build: 2]-[Gc build time: 0.198 sec]
+[Gc name: Copy]-[Gc build: 3]-[Gc build time: 0.31 sec]
+[Gc name: Copy]-[Gc build: 4]-[Gc build time: 0.31 sec]
+[Gc name: Copy]-[Gc build: 5]-[Gc build time: 0.31 sec]
+
+-XX:+UseParallelGC
+[Gc name: PS MarkSweep]-[Gc build: 0]-[Gc build time: 0.0 sec]
+[Gc name: PS MarkSweep]-[Gc build: 1]-[Gc build time: 0.981 sec]
+
+-XX:+UseG1GC
+[Gc name: G1 Young Generation]-[Gc build: 0]-[Gc build time: 0.0 sec]
+[Gc name: G1 Young Generation]-[Gc build: 1]-[Gc build time: 0.036 sec]
+[Gc name: G1 Young Generation]-[Gc build: 2]-[Gc build time: 0.104 sec]
+[Gc name: G1 Young Generation]-[Gc build: 3]-[Gc build time: 0.16 sec]
+[Gc name: G1 Young Generation]-[Gc build: 4]-[Gc build time: 0.215 sec]
+[Gc name: G1 Young Generation]-[Gc build: 5]-[Gc build time: 0.291 sec]
+[Gc name: G1 Young Generation]-[Gc build: 6]-[Gc build time: 0.347 sec]
+[Gc name: G1 Young Generation]-[Gc build: 7]-[Gc build time: 0.398 sec]
+[Gc name: G1 Young Generation]-[Gc build: 8]-[Gc build time: 0.45 sec]
+[Gc name: G1 Young Generation]-[Gc build: 9]-[Gc build time: 0.502 sec]
+[Gc name: G1 Young Generation]-[Gc build: 10]-[Gc build time: 0.55 sec]
+[Gc name: G1 Young Generation]-[Gc build: 11]-[Gc build time: 0.624 sec]
+[Gc name: G1 Young Generation]-[Gc build: 12]-[Gc build time: 0.712 sec]
+[Gc name: G1 Young Generation]-[Gc build: 14]-[Gc build time: 0.787 sec]
+[Gc name: G1 Young Generation]-[Gc build: 15]-[Gc build time: 0.897 sec]
+[Gc name: G1 Young Generation]-[Gc build: 16]-[Gc build time: 0.976 sec]
+[Gc name: G1 Young Generation]-[Gc build: 17]-[Gc build time: 1.029 sec]
+[Gc name: G1 Young Generation]-[Gc build: 18]-[Gc build time: 1.075 sec]
+
+-Xms2048m
+-Xmx2048m
+-XX:+UseSerialGC
+[Gc name: Copy]-[Gc build: 0]-[Gc build time: 0.0 sec]
+[Gc name: Copy]-[Gc build: 1]-[Gc build time: 1.004 sec]
+[Gc name: Copy]-[Gc build: 2]-[Gc build time: 2.01 sec]
+[Gc name: Copy]-[Gc build: 3]-[Gc build time: 3.399 sec]
+[Gc name: Copy]-[Gc build: 4]-[Gc build time: 3.399 sec]
+[Gc name: Copy]-[Gc build: 5]-[Gc build time: 3.399 sec]
+
+-XX:+UseParallelGC
+[Gc name: PS MarkSweep]-[Gc build: 0]-[Gc build time: 0.0 sec]
+[Gc name: PS MarkSweep]-[Gc build: 1]-[Gc build time: 6.573 sec]
+[Gc name: PS MarkSweep]-[Gc build: 2]-[Gc build time: 16.475 sec]
+
+-XX:+UseG1GC
+[Gc name: G1 Young Generation]-[Gc build: 0]-[Gc build time: 0.0 sec]
+[Gc name: G1 Young Generation]-[Gc build: 1]-[Gc build time: 1.053 sec]
+[Gc name: G1 Young Generation]-[Gc build: 2]-[Gc build time: 1.768 sec]
+[Gc name: G1 Young Generation]-[Gc build: 3]-[Gc build time: 2.304 sec]
+[Gc name: G1 Young Generation]-[Gc build: 4]-[Gc build time: 2.909 sec]
+[Gc name: G1 Young Generation]-[Gc build: 5]-[Gc build time: 3.322 sec]
+[Gc name: G1 Young Generation]-[Gc build: 6]-[Gc build time: 3.483 sec]
+[Gc name: G1 Young Generation]-[Gc build: 7]-[Gc build time: 3.928 sec]
+[Gc name: G1 Young Generation]-[Gc build: 8]-[Gc build time: 4.321 sec]
+[Gc name: G1 Young Generation]-[Gc build: 9]-[Gc build time: 4.615 sec]
+[Gc name: G1 Young Generation]-[Gc build: 10]-[Gc build time: 5.047 sec]
+[Gc name: G1 Young Generation]-[Gc build: 11]-[Gc build time: 5.468 sec]
+[Gc name: G1 Young Generation]-[Gc build: 12]-[Gc build time: 5.892 sec]
+[Gc name: G1 Young Generation]-[Gc build: 13]-[Gc build time: 6.366 sec]
+[Gc name: G1 Young Generation]-[Gc build: 14]-[Gc build time: 6.868 sec]
+[Gc name: G1 Young Generation]-[Gc build: 15]-[Gc build time: 7.421 sec]
+[Gc name: G1 Young Generation]-[Gc build: 16]-[Gc build time: 7.859 sec]
+[Gc name: G1 Young Generation]-[Gc build: 17]-[Gc build time: 8.312 sec]
+[Gc name: G1 Young Generation]-[Gc build: 18]-[Gc build time: 8.723 sec]
