@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow'
+}
+
+group 'ru.otus.homework'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.ow2.asm:asm-commons'
+}
+
+task shadowJarLogging(type: Jar, dependsOn: shadowJar) {
+    archiveBaseName.set('Main')
+    manifest {
+        attributes 'Main-Class': 'ru.otus.homework.Main'
+        attributes 'Premain-Class': 'ru.otus.homework.Agent'
+    }
+    from zipTree(shadowJar.archiveFile)
+}
+
+tasks.build.dependsOn tasks.shadowJarLogging
