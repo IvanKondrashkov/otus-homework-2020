@@ -10,5 +10,8 @@ public class Main {
 
         Logging obj2 = new Logging();
         obj2.calculation(21);
+
+        Logging obj3 = new Logging();
+        obj3.pop(250.50);
     }
 }

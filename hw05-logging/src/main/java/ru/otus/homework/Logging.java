@@ -14,4 +14,8 @@ public class Logging {
     public void calculation(int x) {
         //System.out.println("initial params: " + x);
     }
+    @Log
+    public void pop(double y) {
+        //System.out.println("initial params: " + y);
+    }
 }
